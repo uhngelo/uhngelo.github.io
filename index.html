@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal for Eunice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            animation: backgroundFade 5s infinite;
+        }
+        @keyframes backgroundFade {
+            0%, 100% {
+                background-color: #ffe6f2;
+            }
+            50% {
+                background-color: #ffd1dc;
+            }
+        }
+        .proposal-container {
+            text-align: center;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: popIn 1s ease-out;
+        }
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        h1 {
+            color: #ff6699;
+            font-size: 2em;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .yes-button {
+            background-color: #ff6699;
+            color: white;
+        }
+        .yes-button:hover {
+            transform: scale(1.1);
+        }
+        .no-button {
+            background-color: #ccc;
+            color: #333;
+        }
+        .no-button:hover {
+            transform: scale(1.1);
+            background-color: #ff9999;
+        }
+        .heart {
+            font-size: 2em;
+            margin-top: 20px;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <h1>Dwen mahal mo ba ako? ❤️</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="response('yes')">Yes</button>
+            <button class="no-button" onclick="response('no')">No</button>
+        </div>
+        <div id="result" class="heart"></div>
+    </div>
+
+    <script>
+        function response(answer) {
+            const result = document.getElementById('result');
+            if (answer === 'yes') {
+                result.innerHTML = "🥰 yey, loveyou pu! 💕";
+                result.style.color = '#ff6699';
+            } else {
+                result.innerHTML = "💔 agoi, surrender na luds nasasaktan na 'ko";
+                result.style.color = '#999';
+            }
+        }
+    </script>
+</body>
+</html>
