@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jonafel My Baby 🐱❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#ffd6e7;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+max-width:420px;
+padding:20px;
+}
+
+h1{
+font-size:28px;
+margin-bottom:15px;
+}
+
+img{
+width:100%;
+max-width:260px;
+border-radius:10px;
+margin:15px 0;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+justify-content:center;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+}
+
+#yesBtn{
+background:#4CAF50;
+color:white;
+transition:0.3s;
+}
+
+#noBtn{
+background:#ff4d6d;
+color:white;
+position:relative;
+}
+
+/* success page */
+
+.success{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+gap:15px;
+}
+
+.success h1{
+font-size:48px;
+}
+
+.success p{
+font-size:20px;
+}
+
+/* floating hearts */
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="question">Can I be your boyfriend? 🐱❤️</h1>
+
+<img id="catGif"
+src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+
+<div class="buttons">
+
+<button id="yesBtn">Yes 🥺</button>
+<button id="noBtn">No</button>
+
+</div>
+
+</div>
+
+<script>
+
+let yesSize = 18
+
+const sadCats = [
+
+"https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+"https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif",
+"https://media.giphy.com/media/6uMqzcbWRhoT6/giphy.gif",
+"https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"
+
+]
+
+const messages = [
+
+"Are you sure? 🥺",
+"Pag ako umiyak 😿",
+"Agoi Mode 🐱",
+"Ano tong tumutulo ay mga luha ko lang pala 💔"
+
+]
+
+let index = 0
+
+const yesBtn = document.getElementById("yesBtn")
+const noBtn = document.getElementById("noBtn")
+
+/* NO BUTTON */
+
+noBtn.addEventListener("click", () => {
+
+yesSize += 8
+yesBtn.style.fontSize = yesSize + "px"
+
+document.getElementById("catGif").src = sadCats[index]
+document.getElementById("question").innerText = messages[index]
+
+index++
+
+if(index >= sadCats.length){
+index = 0
+}
+
+/* move button randomly */
+
+const x = Math.random()*200-100
+const y = Math.random()*200-100
+
+noBtn.style.transform=`translate(${x}px,${y}px)`
+
+})
+
+/* YES BUTTON */
+
+yesBtn.addEventListener("click", () => {
+
+document.body.innerHTML = `
+
+<div class="success">
+
+<h1>YAY!!! 😺❤️</h1>
+
+<p>Isa na kong swerteng kumag!</p>
+
+<img src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif">
+
+<p>Pa kiss nga aku 😺</p>
+
+</div>
+
+`
+
+})
+
+/* HEARTS */
+
+function createHeart(){
+
+const heart=document.createElement("div")
+
+heart.className="heart"
+heart.innerHTML="❤️"
+
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(Math.random()*20+15)+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},6000)
+
+}
+
+setInterval(createHeart,400)
+
+</script>
+
+</body>
+
+</html>
